@@ -2,7 +2,7 @@ json.id employee.id
 json.first_name employee.first_name
 json.last_name employee.last_name
 json.birthday employee.birthdate
-json.purple_hippo employee.email
+json.email employee.email
 json.ssn employee.ssn
 json.human_created_at employee.created_at.strftime("%m/%d/%Y")
 json.addresses employee.addresses do |address|

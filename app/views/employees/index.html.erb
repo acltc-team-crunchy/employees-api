@@ -1,0 +1,28 @@
+<div ng-app="app">
+  <div ng-controller="employeeCtrl" ng-init="setup()">
+  <p>
+    First Name<input ng-model="firstName">
+    Last Name<input ng-model="lastName">
+    Email<input ng-model="email">
+    <button ng-click="addEmployee(lastName, firstName, email)">Add Employee</button>
+  </p>
+  <table>
+    <tr>
+      <th>First Name</th>
+      <th>Last Name</th>
+      <th>Email</th>
+      <th>Birthdate</th>
+      <th>SSN</th>
+    </tr>
+    <tr ng-repeat="employee in employees">
+      <td>{{ employee.first_name}}</td>
+      <td>{{ employee.last_name}}</td>
+      <td>{{ employee.email}}</td>
+      <td>{{ employee.birthday}}</td>
+      <td>{{ employee.ssn}}</td>
+    </tr>
+  </table>
+
+
+  </div>
+</div>
