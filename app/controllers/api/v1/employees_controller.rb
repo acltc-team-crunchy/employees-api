@@ -10,8 +10,11 @@ class Api::V1::EmployeesController < ApplicationController
 
   def create
     @employee = Employee.new(first_name: params[:first_name], last_name: params[:last_name], email: params[:email], birthdate: params[:birthdate], ssn: params[:ssn])
-    @employee.save
-    render :show
+    if @employee.save
+      render :show
+    else
+      render json: {errors: @employee.errors.full_messages}, status: 422
+    end
   end
 
   def update

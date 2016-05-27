@@ -12,7 +12,8 @@
     var employee = {first_name: firstName, last_name: lastName, email: email}
     $http.post('api/v1/employees.json', employee).then(function(response) {
       $scope.employees.push(response.data);
-      alert("employee added!");
+    }, function(error) {
+      $scope.errors = error.data.errors;
     });
   }
 
