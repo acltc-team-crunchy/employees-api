@@ -1,6 +1,6 @@
 (function () {
   "use strict";
-  angular.module("app").controller("employeeCtrl", function($scope, $http) {
+  angular.module("app").controller("employeeCtrl",['$scope', '$http', function($scope, $http) {
 
   $scope.setup = function() {
     $http.get('/api/v1/employees.json').then(function(response) {
@@ -17,6 +17,22 @@
     });
   }
 
+  $scope.deleteEmployee = function(employee) {
+    $http.delete('api/v1/employees/' + employee.id + '.json').then(function(response) {
+      var index = $scope.employees.indexOf(employee);
+      $scope.employees.splice(index, 1);
+    });
+  }
+
+  $scope.toggleOrder = function(attribute) {
+    if(attribute != $scope.orderAttribute) {
+      $scope.purpleHippo = false;
+    } else {
+      $scope.purpleHippo = !$scope.purpleHippo;
+    }
+    $scope.orderAttribute = attribute;
+  }
+
   window.$scope = $scope;
-  });
+  }]);
 })();    
