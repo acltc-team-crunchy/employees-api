@@ -13,25 +13,6 @@
   <p>
     First Name<input ng-model="firstNameFilter">
   </p>
-  <table>
-    <tr>
-      <th ng-click="toggleOrder('first_name')">First Name</th>
-      <th ng-click="toggleOrder('last_name')">Last Name</th>
-      <th ng-click="toggleOrder('email')">Email</th>
-      <th ng-click="toggleOrder('birthday')">Birthdate</th>
-      <th ng-click="toggleOrder('ssn')">SSN</th>
-      <th>Delete this Entry</th>
-    </tr>
-    <tr ng-repeat="employee in employees | filter: {first_name: firstNameFilter} | orderBy: orderAttribute:purpleHippo">
-      <td>{{ employee.first_name}}</td>
-      <td>{{ employee.last_name}}</td>
-      <td>{{ employee.email}}</td>
-      <td>{{ employee.birthday}}</td>
-      <td>{{ employee.ssn}}</td>
-      <td><button ng-click="deleteEmployee(employee)"> Delete me!!! </button></td>
-    </tr>
-  </table>
-
-
+  <employee-table></employee-table>
   </div>
 </div>
